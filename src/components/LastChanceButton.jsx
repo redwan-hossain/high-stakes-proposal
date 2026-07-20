@@ -85,7 +85,7 @@ export default function LastChanceButton() {
     </div>
   `,
               title: "<span style='font-size:30px'>আহ...! 🥺</span>",
-              text: "মনটা একটু খারাপ হলো...",
+              text: "মনটা ভেঙে গেল...",
               confirmButtonText: "💙",
               confirmButtonColor: "#3b82f6",
               showClass: {
