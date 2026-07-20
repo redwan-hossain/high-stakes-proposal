@@ -1,0 +1,46 @@
+body{
+  margin:0;
+  overflow-x:hidden;
+}
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:300%;
+
+height:300%;
+
+left:-100%;
+
+top:-100%;
+
+background:
+
+radial-gradient(circle,#ff69b420 2px,transparent 2px);
+
+background-size:60px 60px;
+
+animation:bgMove 20s linear infinite;
+
+z-index:-1;
+
+}
+
+@keyframes bgMove{
+
+0%{
+
+transform:translate(0,0);
+
+}
+
+100%{
+
+transform:translate(150px,150px);
+
+}
+
+}
