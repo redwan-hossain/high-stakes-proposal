@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router";
+import MovingButton from "../components/MovingButton";
 
 export default function RejectConfirm() {
   const navigate = useNavigate();
@@ -44,12 +45,20 @@ export default function RejectConfirm() {
             ❤️ আচ্ছা, আরেকবার ভাবি
           </Link>
 
-          <button
+          {/* <button
             onClick={() => navigate("/last-chance")}
             className="btn btn-error rounded-full flex-1"
           >
             💔 না, আমি নিশ্চিত
-          </button>
+          </button> */}
+
+          <div className="relative w-44 h-20">
+
+            <MovingButton
+              onReject={() => navigate("/last-chance")}
+            />
+
+          </div>
 
         </div>
 

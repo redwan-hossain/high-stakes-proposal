@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
+import Swal from "sweetalert2";
 
 export default function LastChanceButton() {
   const wrapperRef = useRef(null);
   const buttonRef = useRef(null);
 
   const [pos, setPos] = useState({ x: 150, y: 60 });
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     const move = (e) => {
@@ -29,7 +31,7 @@ export default function LastChanceButton() {
 
       const distance = Math.sqrt(dx * dx + dy * dy);
 
-      // Cursor 170px এর মধ্যে এলেই পালাবে
+
       if (distance < 170) {
         const angle = Math.atan2(dy, dx);
 
@@ -69,7 +71,35 @@ export default function LastChanceButton() {
     >
       <button
         ref={buttonRef}
-        onClick={(e) => e.preventDefault()}
+        onClick={(e) => {
+          e.preventDefault();
+          setCount(count + 1);
+
+          if (count >= 3) {
+            Swal.fire({
+              background: "#0f172a",
+              color: "#fff",
+              iconHtml: `
+    <div style="font-size:80px;animation:heartbeat 1.5s infinite;">
+      💔
+    </div>
+  `,
+              title: "<span style='font-size:30px'>আহ...! 🥺</span>",
+              text: "মনটা একটু খারাপ হলো...",
+              confirmButtonText: "💙",
+              confirmButtonColor: "#3b82f6",
+              showClass: {
+                popup: "animate__animated animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+            });
+            setCount(0);
+            return;
+          };
+
+        }}
         style={{
           left: pos.x,
           top: pos.y,

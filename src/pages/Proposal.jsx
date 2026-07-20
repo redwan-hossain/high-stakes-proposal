@@ -6,7 +6,7 @@ export default function Proposal() {
 
 
   const escapeHandler = () => {
-   //
+    //
   };
 
   const rejectHandler = () => {
@@ -49,7 +49,7 @@ export default function Proposal() {
             ❤️ অবশ্যই
           </Link>
 
-          <div className="relative w-36 md:w-44 h-16">
+          <div className="relative w-44 md:w-52 h-24">
 
             <MovingButton
               onEscape={escapeHandler}
